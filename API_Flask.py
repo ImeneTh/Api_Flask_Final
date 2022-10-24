@@ -27,8 +27,6 @@ data_train = pd.read_csv("application_train.csv")
 data_test = pd.read_csv("application_test.csv")
 
 # On charge le jeu d'entrainement et le modèle optimal
-X_test = pd.read_csv('X_test_mediane.sav')
-
 url_df = 'data_mediane.csv'
 df_med = pd.read_csv(url_df)
 df_med['SK_ID_CURR'] = df_med['SK_ID_CURR'].astype('int')
@@ -413,24 +411,6 @@ def data_resampler(df_train, target):
     X_rsp, y_rsp = rsp.fit_resample(df_train, target["TARGET"])
 
     return X_rsp, y_rsp
-
-
-# answer when asking for score and decision about one customer
-@app.route('/scoring_cust/')
-def scoring_cust():
-    # Parse http request to get arguments (sk_id_cust)
-    sk_id_cust = int(request.args.get('SK_ID_CURR'))
-    # Get the data for the customer (pd.DataFrame)
-    X_cust = X_test.loc[sk_id_cust:sk_id_cust]
-	# Compute the score of the customer (using the whole pipeline)   
-    score_cust = best_model.predict_proba(X_cust)[:,1][0]
-    # Compute decision according to the best threshold (True: loan refused)
-    bool_cust = (score_cust >= thresh)
-    # Return processed data
-    return jsonify({'status': 'ok',
-    		        'SK_ID_CURR': sk_id_cust,
-    		        'score': score_cust,
-    		        'bool': str(bool_cust)})
 
 
 

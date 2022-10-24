@@ -11,4 +11,5 @@ streamlit
 plotly
 streamlit_shap
 shap
+imblearn
 lightgbm

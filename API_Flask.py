@@ -27,7 +27,7 @@ data_train = pd.read_csv("application_train.csv")
 data_test = pd.read_csv("application_test.csv")
 
 # On charge le jeu d'entrainement et le modèle optimal
-X_test = pd.read_csv('X_test_mediane.csv')
+X_test = pd.read_csv('X_test_mediane.sav')
 
 url_df = 'data_mediane.csv'
 df_med = pd.read_csv(url_df)

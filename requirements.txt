@@ -1,0 +1,14 @@
+absl-py==1.2.0
+flask
+joblib
+sklearn
+gunicorn
+streamlit
+pandas
+numpy
+matplotlib
+streamlit
+plotly
+streamlit_shap
+shap
+lightgbm

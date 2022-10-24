@@ -13,3 +13,4 @@ streamlit_shap
 shap
 imblearn
 lightgbm
+xgboost
